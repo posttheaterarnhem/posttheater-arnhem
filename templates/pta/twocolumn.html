@@ -1,0 +1,31 @@
+<$include virtual="/includes/htmlOpen.inc"/$>	
+<body id="twocolumn">
+	<div id="wrapper">
+		<div id="bodyFade">
+			<div class="main_container_loading">
+				<div id="loading_container" class="loading_container">
+					<img class="loading_spinner" src="images/transparant.png">
+					<span class="loading_spinner_text loading-text">
+						Gegevens ophalen…
+					</span>
+				</div>
+				<div id="PageContainer">
+					<div id="header"></div>
+					<div id="navigation"></div>
+					<div id="subnavigation">
+						<$rootmenu cssClass="mainNav" showHome="true" /$>
+					</div>
+					<div id="contentBackground" class="floatLeft">
+						<div id="contentContainer" class="floatLeft">
+							<div id="columnleft" class="floatLeft">
+								<$sectionmenu cssClass="subNav" showRootMenuItems="false" /$>
+								<$region name="LeftContent"$><$/region$>
+							</div>
+							<div id="columnright" class="floatRight">
+								<$region name="MainContent"$><$/region$>
+							</div>
+						</div>
+					</div>
+	<$include virtual="/includes/footerWrapper.inc"/$>
+	</div>
+<$include virtual="/includes/htmlClose.inc"/$>

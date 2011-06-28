@@ -1,0 +1,263 @@
+/*
+--------------------------------------------------------*/
+
+.xfb-form-container { }
+
+/*
+--------------------------------------------------------*/
+
+
+.xfb-form-container #formHeader { margin: 0; padding: 0 0.5em; }
+
+.xfb-form-container #formTitle {margin: 1em 0 0.375em 0; padding: 0; font-size: 2.0em; }
+.xfb-form-container #formDescription { margin: 0 0 1.5em 0; padding: 0; font-size: 1.1667em; }
+
+.fieldItemEven { }
+.fieldItemOdd { }
+
+/* Field Item
+--------------------------------------------------------*/
+
+.fieldItem { display: block; border: 1px solid transparent; }
+* html .fieldItem {border: none;}
+.fieldItemInner { display: block; padding: 0.5em 0.5em 0.125em; }
+
+* html .fieldItemInner { height: 1%; } /* IE 6 */
+.fieldItemInner:after { content: '.'; height: 0; display: block; visibility: hidden; clear: both; } /* FF / Moz */
+
+/* Selected */
+.fieldSelected { border: 1px solid #caeaf9; background-color: #eaf5fa; }
+
+/* Title */
+.fieldItem .fieldTitle { padding: 0 0 0.1em; display: block; font-size: 1em; font-weight: bold; }
+
+.fieldItem .fieldTitle .req { color: #990000; font-size: 1.2em; margin-left: 0.5em;}
+.fieldItem .fieldTitle .uni { font-size: 0.9em; font-weight: normal; }
+
+/* Content */
+.fieldItem .fieldContent { font: 1em Arial, Helvetica, sans-serif; }
+.fieldItem .fieldRow { margin: 0; padding: 0.2em 0 0.4em; display: block; clear: both; }
+.fieldItem .fieldBlock { padding: 0.3em 0.6em 0.3em 0; display: block; float: left; }
+.fieldItem .fieldName { display: block; font-weight: normal; }
+.fieldItem .fieldNote { display: block; font-size: 1em; color: #6A6A6A; font-style: normal; }
+.fieldItem .textField { 
+	border-bottom: 1px solid #DDD;
+	border-left: 1px solid #C3C3C3;
+	border-right: 1px solid #C3C3C3;
+	border-top: 1px solid #7C7C7C;
+	padding:2px;
+}
+.fieldItem label {font-weight: normal;}
+
+/* Fields */
+.xsmallField .textField,
+.xsmallField.type-phone .textField.phone-international,
+.xsmallField .dropdown {width: 100px;}
+.xsmallField.type-address .textField {width: 210px;}
+.xsmallField.type-name .textField {width: 80px;}
+.xsmallField.type-address .dropdown.country {width: 92px;}
+.xsmallField.type-address .textField.city,
+.xsmallField.type-address .dropdown,
+.xsmallField.type-address .textField.state {width: 78px;}
+.xsmallField.type-name .textField.prefix,
+.xsmallField.type-name .textField.suffix,
+.xsmallField.type-address .textField.zip {width: 98px;}
+.xsmallField.type-time .textField,
+.xsmallField.type-phone .textField,
+.xsmallField.type-date .textField {width: 27px;}
+.xsmallField.type-date .dropdown,
+.xsmallField.type-time .dropdown,
+.xsmallField.type-price .textField {width: 60px;}
+
+.smallField .textField,
+.smallField.type-phone .textField.phone-international,
+.smallField .dropdown {width: 150px;}
+.smallField.type-address .textField {width: 250px;}
+.smallField.type-name .textField {width: 98px;}
+.smallField.type-address .dropdown.country {width: 119px;}
+.smallField.type-address .textField.city,
+.smallField.type-address .dropdown,
+.smallField.type-address .textField.state {width: 98px;}
+.smallField.type-name .textField.prefix,
+.smallField.type-name .textField.suffix,
+.smallField.type-address .textField.zip {width: 98px;}
+.smallField.type-phone .textField,
+.smallField.type-time .textField,
+.smallField.type-date .textField {width: 27px;}
+.smallField.type-price .textField,
+.smallField.type-date .dropdown,
+.smallField.type-time .dropdown {width: 60px;}
+
+.medField .textField,
+.medField.type-phone .textField.phone-international,
+.medField .dropdown {width: 250px;}
+.medField.type-name .textField,
+.medField.type-address .dropdown.country {width: 119px;}
+.medField.type-address .textField.city,
+.medField.type-address .dropdown,
+.medField.type-address .textField.state {width: 98px;}
+.medField.type-name .textField.prefix,
+.medField.type-name .textField.suffix,
+.medField.type-time .textField,
+.medField.type-date .textField,
+.medField.type-phone .textField,
+.medField.type-address .textField.zip {width: 98px;}
+.medField.type-date .dropdown,
+.medField.type-time .dropdown,
+.medField.type-price .textField {width: 74px;}
+.medField.type-date .textField.dateDay,
+.medField.type-date .textField.dateMonth,
+.medField.type-date .textField.dateYear{width: 35px;}
+
+.largeField .textField,
+.largeField.type-phone .textField.phone-international,
+.largeField .dropdown {width: 400px;}
+.largeField.type-name .textField,
+.largeField.type-address .dropdown.country {width: 194px;}
+.largeField.type-address .textField.city,
+.largeField.type-address .dropdown,
+.largeField.type-address .textField.state {width: 156px;}
+.largeField.type-name .textField.prefix,
+.largeField.type-name .textField.suffix,
+.largeField.type-address .textField.zip {width: 68px;}
+.largeField.type-time .textField,
+.largeField.type-phone .textField,
+.largeField.type-date .textField {width: 35px;}
+.largeField.type-date .dropdown,
+.largeField.type-time .dropdown {width: 74px;}
+.largeField.type-price .textField {width: 124px;}
+
+.form_container .smallField { width:180px;display:inline-block;}
+.form_container .smallField.type-email { width:180px;display:inline-block;}
+.form_container .smallField.type-phone { width:180px;display:inline-block;}
+
+body.memberuploadzone div.type-sectionbreak {border-bottom:1px solid #999;margin-bottom:12px;}
+body.memberuploadzone div.type-sectionbreak .fieldItemInner {display:none;}
+
+/* Instructions */
+.fieldItem .fieldInstructions { padding: 0.2em 0 0.8em; display: block; clear: both; font-size: 0.9em; }
+
+.fieldItem .radio-container .choice-option,
+.fieldItem .checkbox-container .choice-option { padding: 0.3em; display: block; width:130px;float:left;}
+
+.choice-option label {display: inline;padding-left:4px;}
+
+
+/* Field Specific
+--------------------------------------------------------------*/
+
+.fieldItem .dropdown-country { }
+.fieldItem .dropdown-country select { float: left; }
+.fieldItem .dropdown-country .flag-container { width: 16px; height: 11px; display: block; margin: 0.3em 0 0 0.6em; float: left; }
+
+.type-price .fieldName,
+.type-price .textField,
+.type-price .fieldNote { float: left; }
+.type-price .fieldNote, .type-price .fieldName {margin: 0.25em 0;}
+.type-price .textField {margin: 0 0.5em;}
+
+.dropdown { font-size: 1em; }
+
+.dropdown-image-container { }
+.dropdown-image { padding: 0.4em; }
+
+
+/* Submit Button
+--------------------------------------------------------------*/
+
+.submitButtonContainer { padding: 0.4em 0.5em; display: block; }
+.submitButtonContainer .submitButton {
+	background-color: #fff;
+	width: 78px;
+	height: 32px;
+	color: #000;
+	border-bottom: 1px solid #DDD;
+	border-left: 1px solid #C3C3C3;
+	border-right: 1px solid #C3C3C3;
+	border-top: 1px solid #7C7C7C;
+	margin: 10px 0 5px;
+	cursor:pointer;
+}
+.winter .submitButton { color:#66cef3;}
+.lente .submitButton { color:#54b948;}
+.zomer .submitButton { color:#f1cb00;}
+.herfst .submitButton { color:#99042f;}
+
+.winter input:hover.submitButton { background-color:#66cef3; color:#fff;}
+.lente input:hover.submitButton { background-color:#54b948; color:#fff;}
+.zomer input:hover.submitButton { background-color:#f1cb00; color:#fff;}
+.herfst input:hover.submitButton { background-color:#99042f; color:#fff;}
+
+/*
+--------------------------------------------------------------*/
+
+.errorSummary { margin-bottom: 0.1em; padding: 0.8em 1.4em; background: #FFFFCC; border: 1px solid #E6D8A2; }
+.errorSummary strong { color: #000; }
+.errorSummary p { margin: 0; color: #990000; }
+
+
+.fieldItemError { background: #FFEAEB; border-color: #ffccce; }
+.fieldItemError .fieldItemInner .errorDescription { padding-left: 2em; font-size: 1em; color: #990000; font-style: italic; }
+
+.fieldItemError .fieldTitle { /*font-style: italic;*/ color: #CC0000; }
+.fieldItemError .fieldRowError { border-left: 1px solid #990000; }
+
+.fieldItemError .fieldBlockError { }
+.fieldItemError .fieldBlockError .fieldName { color: #990000; }
+div.fieldItemError span.fieldBlockError em.fieldNote { color: #CC0000; }
+.fieldItemError .fieldBlockError .error { border: 1px solid #ffccce; }
+
+/* Lightbox
+--------------------------------------------------------------*/
+
+.lightbox { background-color: #000; opacity: 0.5; filter: alpha(opacity=50); position: fixed !important; height:100%!important;}
+#lightbox_content { position: fixed !important; left: 0; top: 0; z-index: 9500; }
+.lightbox-content { width: 600px; height: 400px; display: block;}
+.mceListBoxMenu { z-index:9999!important; }
+
+
+
+/* Confirmation Message
+--------------------------------------------------------------*/
+
+.confirmation-content { width: 600px; height: 400px; display: block; background: #FFF; }
+.confirmation-content-inner { padding: 2em 0 0 0; }
+
+.confirmation-content .text { width: 90%; margin: 0 auto; display: block; overflow: auto; padding: 0.2em 0.3em; background: #FFF url(/themes/light/images/input_bg.gif) top repeat-x; border: 1px solid #CCC; border-top: 1px solid #999; border-left: 1px solid #999; font: 1.1em Verdana, Arial, Helvetica, sans-serif; }
+
+.confirmation-content .save-options { padding: 1em 2em; display: block; text-align: right; }
+.confirmation-content .save-options .button { font-size: 0.9em; font-family:Verdana; font-weight:bold; }
+.confirmation-content-message { padding: 10px; font-family:Verdana; font-size: 12px;}
+
+/* Button controls
+--------------------------------------------------------------*/
+
+.save-options .button { margin: 0.3em 0.3em 0.2em auto; padding: 0.4em 0.8em; font-size: 1.1em; text-decoration: none; color: #FFF; overflow: hidden; text-align: center; background: #B9B9B9; border: 1px solid #CCC; border-right-color: #999; border-bottom-color: #999; text-align: center; }
+
+.save-options .button-save:hover { background: #9BC191; border-color: #ACD1A7; border-right-color: #76A965; border-bottom-color: #76A965; }
+.save-options .button-save:active { background: #76A965; border-color: #ACD1A7; border-right-color: #76A965; border-bottom-color: #76A965; }
+
+.save-options .button-cancel:hover { background: #DF8A8A; border-color: #E7B0AD; border-right-color: #C25454; border-bottom-color: #C25454; }
+.save-options .button-cancel:active { background: #C25454; border-color: #E7B0AD; border-right-color: #C25454; border-bottom-color: #C25454;}
+
+/* View Form Password
+--------------------------------------------------------------*/
+
+.passwordRequirement { text-align: center; }
+.passwordRequirement .passwordContainer { margin: auto; text-align: left; display:inline-block; width: 500px; }
+.passwordRequirement .passwordContainer p { font-family: Verdana; font-size: 12px; margin: 8px 0px 8px 0px; display:block; line-height: 14px; }
+
+/* Date Picker 
+--------------------------------------------------------------*/
+.datePickerImage { cursor: pointer; }
+#FBDatePicker { width: 184px; font-family: 'Arial'; font-size: 12px; z-index: 9999; background-color: #EEE; padding: 3px; border: solid 1px #999; color: #000; }
+#FBDatePicker .fbdMove { width: 50px; float: left; cursor: pointer; }
+#FBDatePicker .fbdTitle { width: 75px; float: left; }
+#FBDatePicker .fbdRow { clear: both }
+#FBDatePicker .frbDayBlock { float: left; width: 25px; text-align:center; padding: 2px 0px 2px 0px; cursor: pointer; display: block; }
+#FBDatePicker .fbdDateFieldsRow { float: right; }
+
+/* Price Fields
+--------------------------------------------------------------*/
+span.choicePrice { display: none; }
+.paymentForm span.choicePrice { display: inline; }

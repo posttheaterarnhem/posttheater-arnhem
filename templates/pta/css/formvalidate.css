@@ -1,0 +1,637 @@
+/******* CONTAINER *******/
+#container {
+    width: 600px;
+    margin: 40px auto;
+    text-align: left;
+    /* frank */
+    border: 1px solid black;
+}
+
+/******* /CONTAINER *******/ /******* FORM *******/
+div#form {
+    padding: 18 0 0 0;
+}
+
+input.button,a.button {
+	background:#E98300;
+	color:#fff;
+	padding:5px;
+	font-family:Verdana;
+	font-size:11px;
+	font-weight: bold;
+	border:1px solid white;
+    cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+input.button:hover, a.button:hover {
+	background:#fff;
+	color:#E98300;
+	padding:5px;
+	font-family:Verdana;
+	font-size:11px;
+	font-weight: bold;
+	border:1px solid #E98300;
+    cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+input.button:focus, a.button:focus {
+	background:#fff;
+	color:#E98300;
+	padding:5px;
+	font-family:Verdana;
+	font-size:11px;
+	font-weight: bold;
+	border:1px solid #E98300;
+    cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+label {
+    float: left;
+    padding-top: 4px;
+    padding-right: 6px;
+    color: black;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    text-align: right;
+    font-weight: 400;
+    width: 165px;
+}
+
+input.field {
+    width: 225px;
+    padding: 2px;
+    color: #5e5e5e;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    border: 1px solid #cecece;
+}
+
+#homepostalcode {
+    width: 75px;
+    padding: 2px;
+    color: #5e5e5e;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    border: 1px solid #cecece;
+}
+
+#homestreet_housenumber {
+    width: 25px;
+    padding: 2px;
+    color: #5e5e5e;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    border: 1px solid #cecece;
+}
+
+#streetnr_suffix {
+    width: 25px;
+    padding: 2px;
+    color: #5e5e5e;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    border: 1px solid #cecece;
+}
+
+#approvemc {
+    width: 25px;
+    padding: 0px;
+    text-align: left;
+    border: 0px solid;
+}
+
+#approvepolicy {
+    width: 25px;
+    padding: 0px;
+    text-align: left;
+    border: 0px solid;
+}
+
+input:focus {
+    background: #fff;
+    /* border-color: #e77776;*/
+    /* uitgezet vanwege straat, huisnr en toevoeging
+       geen standaardbreedte */
+    border-color: #0C8CEB;
+    -webkit-box-shadow:#0C8CEB 0px 0px 5px;
+    -moz-box-shadow:#0C8CEB 0px 0px 5px;
+    -o-box-shadow:#0C8CEB 0px 0px 5px;
+    box-shadow:#0C8CEB 0px 0px 5px;
+}
+input.error, select.error {
+    background: #fff;
+    /* border-color: #e77776;*/
+    /* uitgezet vanwege straat, huisnr en toevoeging
+       geen standaardbreedte */
+    border-color: #E98300;
+    -webkit-box-shadow:#E98300 0px 0px 5px;
+    -moz-box-shadow:#E98300 0px 0px 5px;
+    -o-box-shadow:#E98300 0px 0px 5px;
+    box-shadow:#E98300 0px 0px 5px;
+}
+#form div {
+    margin-bottom: 15px;
+}
+
+#login_form div {
+    margin-bottom: 15px;
+}
+
+#form div span {
+/*
+	display: none;
+*/
+    display: block;
+    margin-left: 172px;
+    color: #b1b1b1;
+    font-size: 11px;
+    font-style: italic;
+    width: 325px;
+    min-height:5px;
+}
+
+#form div span.error, span.error {
+    color: #E98300;
+}
+
+/*
+#aanmaken_account {
+    border: 0;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1px;
+    background: url(../images/shop/button_aanmaken_account.gif) no-repeat;
+    width: 233px;
+    height: 13px;
+    margin-left: 152px;
+}
+
+#aanmaken_account:hover {
+    background: url(../images/shop/button_aanmaken_account_h.gif) no-repeat;
+}
+*/
+
+/*
+#inloggen {
+    border: 0;
+    cursor: pointer;
+    background: url(../images/shop/button_inloggen.gif) no-repeat;
+    width: 233px;
+    height: 13px;
+    margin-left: 152px;
+}
+
+#inloggen:hover {
+    background: url(../images/shop/button_inloggen_h.gif) no-repeat;
+}
+*/
+
+/*
+#wachtwoord_vergeten {
+    border: 0;
+    cursor: pointer;
+    background: url(../images/shop/button_wachtwoord_sturen.gif) no-repeat;
+    width: 233px;
+    height: 13px;
+    margin-left: 152px;
+}
+
+#wachtwoord_vergeten:hover {
+    background: url(../images/shop/button_wachtwoord_sturen_h.gif) no-repeat
+        ;
+}
+
+*/
+/*
+#wijziging_opslaan {
+    border: 0;
+    cursor: pointer;
+    background: url(../images/shop/button_wijziging_opslaan.gif) no-repeat;
+    width: 233px;
+    height: 13px;
+    margin-left: 152px;
+}
+
+#wijziging_opslaan:hover {
+    background: url(../images/shop/button_wijziging_opslaan_h.gif) no-repeat
+        ;
+}
+
+*/
+/*
+#profiel_opslaan {
+    border: 0;
+    cursor: pointer;
+    background: url(../images/shop/button_wijziging_opslaan.gif) no-repeat;
+    height: 13px;
+    margin-top: 24px;
+}
+
+#profiel_opslaan:hover {
+    background: url(../images/shop/button_wijziging_opslaan_h.gif) no-repeat
+        ;
+}
+*/
+
+#kaartenbestellen {
+    border: 0;
+    cursor: pointer;
+    background: url(../images/shop/button_kaartenbestellen.gif) no-repeat;
+}
+
+#kaartenbestellen:hover {
+    background: url(../images/shop/button_kaartenbestellen_h.gif) no-repeat;
+}
+
+.readonly {
+    border: 1px solid #ffffff;
+}
+
+#error {
+    margin-bottom: 20px;
+    border: 1px solid #efefef;
+}
+
+#error ul {
+    list-style: square;
+    padding: 5px;
+    font-size: 11px;
+}
+
+#error ul li {
+    list-style-position: inside;
+    line-height: 1.6em;
+}
+
+#error ul li strong {
+    color: #e46c6d;
+}
+
+#error.valid ul li strong {
+    color: #93d72e;
+}
+
+#confirmReservation {
+    padding: 0 10px 10px;
+}
+
+#zoekbox {
+    width: 140px;
+}
+
+#zoek1 {
+    border: 0;
+    width: 44px;
+    height: 25px;
+}
+
+#main2 {
+    float: left;
+}
+
+#content {
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-family: arial, sans-serif;
+    line-height: 15px;
+    color: #000000;
+    padding: 8px;
+}
+
+/******* FORM *******/
+#right_column .right_column {
+    font-size: 11px;
+    font-weight: normal;
+    font-style: normal;
+    font-family: arial, sans-serif;
+    line-height: 15px;
+    color: #000000;
+}
+
+.sc_artist {
+    float: left;
+    width: 445px;
+}
+
+.sc_artist a {
+    color: #000000;
+    font-size: 11px;
+    font-weight: bold;
+    color: #000000;
+    text-decoration: underline;
+}
+
+.sc_artist a:hover {
+    color: #ff0000;
+    text-decoration: underline;
+}
+
+#sc_change {
+    float: right;
+    text-align: right;
+    padding: 0 0 0 0;
+}
+
+#sc_change a {
+	background:#E98300;
+	color:#fff;
+	padding:5px;
+	font-family:Verdana;
+	font-size:9px;
+	font-weight: bold;
+	border:1px solid white;
+    cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+#sc_change a:hover {
+	background:#fff;
+	color:#E98300;
+	padding:5px;
+	font-family:Verdana;
+	font-size:9px;
+	font-weight: bold;
+	border:1px solid #E98300;
+    cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.sc_location {
+    color: #000000;
+    font-size: 11px;
+    font-weight: normal;
+    /*  padding: 0 4px 0 2px; */
+}
+
+.details {
+    color: #000000;
+    font-size: 11px;
+    font-weight: normal;
+    /*  padding: 0 2px 0 2px; */
+}
+
+.block {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+}
+
+/*
+#betalen {
+    border: 0;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1px;
+    background: url(../images/shop/button_naar_betalen.gif) no-repeat;
+    width: 233px;
+    height: 13px;
+    margin: 15px 0 0 8px;
+}
+
+#betalen:hover {
+    background: url(../images/shop/button_naar_betalen_h.gif) no-repeat;
+}
+*/
+
+/******* Stoelselector ******/
+.legenda {
+    font-size: 11px;
+    text-align: left;
+}
+
+/******* Mijn eerder bestelde kaartjes ******/
+#previoustickets {
+    border-bottom: 2px solid #000000;
+    width: 400px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+#tablesubheader {
+    background: #616161;
+    height: 100%;
+    color: white;
+    padding: 2px 4px 2px 4px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+#tablesubheader th {
+    padding: 2px 2px 2px 2px;
+    font-size: 11px;
+    color: #fff;
+}
+
+#tablesubheader td {
+    padding: 2px 2px 2px 2px;
+    font-size: 11px;
+    font-weight: normal;
+    color: #fff;
+}
+
+.production {
+    float: left;
+    width: 285px;
+}
+
+.production a {
+    color: #000000;
+    font-size: 11px;
+    font-weight: bold;
+    color: #000000;
+    text-decoration: underline;
+}
+
+.production a:hover {
+    color: #ff0000;
+    text-decoration: underline;
+}
+
+#download {
+    float: right;
+    text-align: right;
+    width: 96px;
+    padding: 0 2px 0 2px;
+}
+
+#download a {
+    color: #cc0000;
+    font-size: 11px;
+    font-weight: normal;
+    color: #ff0000;
+    text-decoration: none;
+}
+
+#download a:hover {
+    color: #ff0000;
+    text-decoration: underline;
+}
+
+.row table {
+    line-height: 15px;
+}
+
+.message {
+    width: 125px;
+    padding: 2px;
+    color: #f00;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+#aanmaken_reservering {
+    border: 0;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1px;
+    background: url(../images/shop/button_aanmaken_reservering.gif)
+        no-repeat;
+    width: 233px;
+    height: 13px;
+    margin-left: 152px;
+}
+
+#aanmaken_reservering:hover {
+    background: url(../images/shop/button_aanmaken_reservering_h.gif)
+        no-repeat;
+}
+
+#toon_bestelformulier {
+    border: 0;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1px;
+    background: url(../images/shop/button_toon_bestelformulier.gif)
+        no-repeat;
+    width: 233px;
+    height: 13px;
+    margin-left: 152px;
+}
+
+#toon_bestelformulier:hover {
+    background: url(../images/shop/button_verberg_bestelformulier.gif)
+        no-repeat;
+}
+
+#rang1 {
+    width: 25px;
+    padding: 2px;
+    color: #5e5e5e;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    border: 1px solid #cecece;
+}
+
+#rang2 {
+    width: 25px;
+    padding: 2px;
+    color: #5e5e5e;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    border: 1px solid #cecece;
+}
+
+#rang3 {
+    width: 25px;
+    padding: 2px;
+    color: #5e5e5e;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    border: 1px solid #cecece;
+}
+
+#approveai {
+    width: 25px;
+    padding: 2px;
+    color: #5e5e5e;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    border: 1px solid #cecece;
+}
+
+table#tbl_getUnplacedSeatsTable td:first-child {
+    text-align: center;
+    vertical-align: text-bottom;
+    width: 130px;
+}
+
+table#tbl_getUnplacedSeatsTable td {
+    text-align: right;
+    width: 80px;
+    vertical-align: text-bottom;
+    padding: 4px;
+}
+
+table#tbl_getUnplacedSeatsTable td:last-child {
+    text-align: left;
+    width: 80px;
+    vertical-align: text-bottom;
+    padding: 4px;
+}
+
+.r {
+    text-align: right;
+}
+.fieldBlock {
+	float:left;
+	display:block;
+	margin:0;
+	padding:0;
+}
+.fieldBlock .checkbox-container,
+.fieldBlock .radio-container{
+	display:block !important;
+}
+.fieldBlock .checkbox-container span.choice-option,
+.fieldBlock .checkbox-container span,
+.fieldBlock .radio-container span.choice-option,
+.fieldBlock .radio-container span{
+	float:left;
+	display:block !important;
+	margin-left:0 !important;
+	width:100%;
+	height:18px !important;
+}
+.fieldBlock .checkbox-container .choice-option input.checkbox,
+.fieldBlock .radio-container .choice-option input.radio {
+	float:left;
+	height:18px;
+	margin-right:5px;
+	padding:0;
+	width:13px;
+}
+.fieldBlock .choice-option label {
+	height:18px;
+	text-align: left !important;
+	padding-top: 2px;
+}
+
+/* WINKELWAGEN */
+#loading_cart {right:20px; top:20px; background-color:black; color:#fff; padding:15px; font-size:1em; text-align:center; text-transform:uppercase; font-weight:bold; }
+
+#cart {font-size:12px; line-height:1.3em; margin-bottom:10px; display:none; color:#000;}
+#cart table {width:100%; border:0px solid #deeaf5;}
+#cart .quantity-wrapper {width:17px;}
+#cart input {width:11px; border:1px solid #CECECE;background-color:#fff; padding:2px 2px; color:#000;}
+#cart .item td {padding-top:5px;padding-bottom:5px;  line-height:100%;}
+#cart .item a.name {display:block; color:#e98300; line-height:120%;}
+#cart .item a.name:hover {color:#02276D;}
+#cart .item td.remove { border-bottom:0px solid white; padding-left:4px; width:10px;}
+#cart .remove-item {width:10px; height:10px; display:block; margin-top:1px; background-repeat:no-repeat;background-image:url("../images/remove.png"); cursor:pointer;}
+#cart .remove-item:hover {background-image:url("../images/remove-active.png")!important;}
+#cart .cart-total {text-align:right;}
+#cart .totals {padding:20px 15px 20px 15px; border-top:1px solid #5d7d86; background-color:#728f9a;text-shadow:0 1px 1px rgba(0,0,0,.3);text-transform:uppercase;}
+#cart .totals .title {float:left;}
+#cart .totals .subtotal, #cart .totals .total {float:right; color:#FFF; font-size:18px; font-weight:bold;}
+
+#cart #cart_checkout {padding:5px; color:#fff; background-color:#e98300; margin-top:5px; border:1px solid #fff; font-size:11px; font-weight:bold; cursor: pointer;text-transform: uppercase;background-repeat:no-repeat;background-image:url("../images/arrow.png"); background-position: 213px center;}
+#cart #cart_checkout:hover {background-color:#fff; border-color:#e98300;color:#e98300;background-image:url("../images/arrow-active.png")}
+
+#empty_cart p {display:none !important;}
+.line {border-top:1px solid #e3e3e3; line-height:0; font-size:0; clear:both; position:relative;}
