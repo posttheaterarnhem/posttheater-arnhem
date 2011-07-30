@@ -1,6 +1,5 @@
 (function($) {
 	jQuery.noConflict();
-	console.log(COOKIE_NAME);
 	//var options = { path: '/', expires: 0 };
 	jQuery.noConflict();
     $("document").ready(function() {
@@ -25,7 +24,6 @@
 					host: host
 				},
 				success: function(e) {
-					console.log(e);
 					var Code=e.EPSVenue.Result.Code;
 					var Message=e.EPSVenue.Result.Message;
 				}

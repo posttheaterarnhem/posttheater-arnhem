@@ -9,15 +9,13 @@
 		-----------------------------------------------------------------*/
 		var COOKIE_NAME = window.EPS.cookie;
 
-		var relationDataJSON=$.cookie('relationData');
-		var relationData=JSON.parse(relationDataJSON);
+		var relationDataJSON = $.cookie('relationData');
+		var relationData = JSON.parse(relationDataJSON);
 		var authenticated = $.cookie(COOKIE_NAME);
 
     	var wijzigmijngegevens=$('body.wmg');
 
     	if ( wijzigmijngegevens.length > 0  && authenticated ==='authenticated'  && ( relationData != null || relationData != 'undefined') ){
-// 			$('body.wmg div#background').css('z-index',9999).css('background','#E98300');
-// 			$('#div.background p.message').css('display','block');
 			$('div#columnright').addClass('loading');
 			$('div#loading_container').css('display','block').css('z-index','9999');
  			getRelation();
@@ -84,6 +82,7 @@
 							homephone=e.EPSVenue.Data.homephone;
 							homephone2=e.EPSVenue.Data.homephone2;
 							email3address=e.EPSVenue.Data.email3address;
+							categoryAr=e.EPSVenue.Data.categories;
 							$('#title_fk').val(title_fk);
 							$('#initials').val(initials);
 							$('#middlename_fk').val(middlename_fk);
@@ -100,7 +99,12 @@
 							$('#email').val(email3address);
 							$('div#columnright').removeClass('loading');
 							$('div#loading_container').css('display','none');
-// 							$('body.wmg div#background').css('z-index',0).css('background','');
+							// Houdt mij op de hoogte=15
+							if(jQuery.inArray(15, categoryAr)) {
+								$('approvemc').attr('checked', true);
+							} else {
+								$('approvemc').attr('checked', false);							
+							}
 						} else {
 							alert(Message +'\n(' + Code + ')');
 						}

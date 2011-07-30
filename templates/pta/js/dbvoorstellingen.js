@@ -86,7 +86,7 @@
 							return 'hide';
 						}
 					},
-					'div.row1 div.afbeelding@style':'background: url(http://www.keizerkarelpodia.nl/pub/images/media/assets/#{obj.attributes.AfbeeldingBestandsnaam}) center center',
+					'div.row1 div.afbeelding@style':'background: url(http://92.70.205.225/EPSVenue/images/media/assets/#{obj.attributes.AfbeeldingBestandsnaam}) center center',
 					'a.datum': '#{obj.attributes.LeesbareDatum}',
 					'a.datum@href':'/voorstelling?activity=#{obj.Id}',
 					'a.uitvoerenden': 'obj.Uitvoerenden',

@@ -1,9 +1,7 @@
 (function($) {
 
 	jQuery.noConflict();
-	
     $("document").ready(function() {
-	console.log(productions);
 		/* ----------------------------------------------------------------
 		Set cookie variable
 		-----------------------------------------------------------------*/
@@ -44,25 +42,6 @@
 			}
 		}
 		/* ----------------------------------------------------------------
-		General function for formatting a date
-		-----------------------------------------------------------------*/
-		function dateFormat(datum){
-			console.log(datum);
- 			var day = datum.getDay();
-			console.log(datum);
- 			var date = datum.getDate();
-			console.log(datum);
- 			var month = datum.getMonth();
-			console.log(month);
- 			var year = datum.getYear();
-			console.log(year);
- 			var hour = datum.getHours();
-			console.log(hour);
- 			var minutes = datum.getMinutes();
-			console.log(minutes);
- 			console.log(day +' '+ date +' '+ month +' '+ year +' '+ hour +' '+ minutes);
-		}
-		/* ----------------------------------------------------------------
 		PURE function for displaying one activity
 		-----------------------------------------------------------------*/
 
@@ -81,12 +60,13 @@
 					'div.image': 'Image',
 					'h1.uitvoerenden': 'Uitvoerenden',
 					'h2.titel': 'Titel',
+					'h2.titel': 'Subtitel',
 					'li.datum': '<h3>datum</h3>#{Datum}',
 					'li.tijd': '<h3>tijd</h3>#{Tijd}',
 					'li.locatie': '<h3>zaal</h3>Grote Zaal',
 					'li.prijs': '<h3>prijs</h3>#{Prijs}',
-					'li.arrangement a@href':'/theater-diner?activity=#{'+activity+'}',					
-					'div.bestelknop a@href': '/bestellen?activity=#{'+activity+'}',
+					'li.arrangement a@href':'/theater-diner?activity=#{'+activity+'}',
+ 					'div.bestelknop a@href': '/bestellen?activity=#{'+activity+'}',
 					'div.omschrijving': 'Omschrijving'
 		};
 		$('#voorstelling').render(production, directive);

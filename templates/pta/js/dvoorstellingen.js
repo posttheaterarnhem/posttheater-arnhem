@@ -51,7 +51,7 @@
 
 		/* ----------------------------------------------------------------
 		PURE function for displaying one activity
-		-----------------------------------------------------------------*/
+		-----------------------------------------------------------------*/		
 		var directives = {
 			'li.voorstelling': {
 				'obj<-EPSVenue.getReportData.Record': { // "for obj in items"
@@ -60,14 +60,15 @@
 					},
 					'div.column1 div.datum a.datum': '#{obj.attributes.LeesbareDatum}',
 					'div.column1 div.datum a.datum@href':'/voorstelling?activity=#{obj.Id}',
-					'div.column2 div.afbeelding@style':'background: url(http://www.keizerkarelpodia.nl/pub/images/media/assets/#{obj.attributes.AfbeeldingBestandsnaam}) center center',
+					'div.column2 div.afbeelding@style':'background: url(http://92.70.205.225/EPSVenue/images/media/assets/#{obj.attributes.AfbeeldingBestandsnaam}) center center',
 					'a.uitvoerenden': 'obj.Uitvoerenden',
 					'a.uitvoerenden@href': '/voorstelling?activity=#{obj.Id}',
-					'div.column3 div.titeldiv a.titel': 'obj.Titel',
+					'div.column3 div.titeldiv a.titel': 'obj.Titel' ,
+					'div.column3 div.titeldiv .subtitel': 'obj.Subtitel',
 					'a.titel@href':'/voorstelling?activity=#{obj.Id}',
 					'div.column3 div.titeldiv a.titel@title':'klik voor details #{obj.Titel}',
-					'div.column4 span.prijs': 'obj.Prijs',
-					'a.kaartenkopen@href': '/bestellen?activity=#{obj.Id}'
+					'div.column4 span.prijs': function(arg) { return displayPriceAndMenuIcon(arg.item.attributes.BestelOptieId, arg.item.Prijs)}, //'obj.Prijs',
+					'div.column4 span.button': function(arg) { return displayReservationOption(arg.item.Id, arg.item.attributes.BestelOptieId, arg.item.Titel, arg.item.HTML_Javascript)},
 				}
 			}
 		};
@@ -92,7 +93,8 @@
 		/* ----------------------------------------------------------------
 		On body load filter only the activities of the current month
 		-----------------------------------------------------------------*/
-		filterActivitiesPerMonth(todaysMonth);
+		filterActivitiesPerMonth(8);
+// 		filterActivitiesPerMonth(todaysMonth);
 
 		/* ----------------------------------------------------------------
 		General function to filter the activities per month
@@ -112,6 +114,39 @@
 				}).show('slow');
 			}
 		}
+		/* ----------------------------------------------------------------
+		Helper functie om directives leesbaar te houden
+		-----------------------------------------------------------------*/
+		function displayReservationOption(Id, BestelOptieId, Txt, HTML_Javascript) {
+			var retVal = '';
+			if(BestelOptieId == 1) {
+				//retVal = '<a class="kaartenkopen" href="/bestelformulier">online kaarten kopen</a>';
+				retVal += '<a class="kaartenkopen" href="/bestellen?activity='+Id+'">online kaarten kopen</a>';
+			} else if (BestelOptieId == 2) {
+				retVal = 'Reserveren is niet van toepassing';
+			} else if (BestelOptieId == 3) {
+				retVal = '';
+			} else if (BestelOptieId == 4) {
+				retVal = HTML_Javascript;
+			}
+			return retVal;
+		}
+		//
+		function displayPriceAndMenuIcon(BestelOptieId, Prijs) {
+			var retVal = '';
+			retVal = Prijs;
+			if(BestelOptieId == 1) {
+				retVal += '<div style="float:right"><a title="details theaterdiner" href="/theater-diner?activity=69" id="eetBtnHref"><img class="eetBtn" width="45" height="34" src="/Websites/pta/Images/transparant.png" alt=""></a></div>';
+			} else if (BestelOptieId == 2) {
+				//
+			} else if (BestelOptieId == 3) {
+				//
+			} else if (BestelOptieId == 4) {
+				//
+			}
+			return retVal;
+		}
+		
 
     });
 

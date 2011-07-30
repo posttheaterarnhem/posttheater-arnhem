@@ -3,7 +3,12 @@
 	jQuery.noConflict();
 	
     $("document").ready(function() {
-    	console.log(shoppingcard);
+
+		var itemsInBasket = new Array();
+    	var itemsinshoppingcard = shoppingcard.EPSVenue.Data.activityAr.length;
+    	if (itemsinshoppingcard > 0) {
+    		$('#cart').show();
+    	}
 		/* ----------------------------------------------------------------
 		Set cookie variable
 		-----------------------------------------------------------------*/
@@ -25,7 +30,7 @@
 
     	var voegtoe=$('body.voegtoe');
     	if ( voegtoe.length > 0  && authenticated != 'authenticated'  && ( relationData === null || relationData === 'undefined') ){
-		var activity = $.getUrlVar('activity');
+			var activity = $.getUrlVar('activity');
 			// niet ingelogd, ga naar inlogscherm
 			var newWindowLocation = host + '/inloggen?activity='+activity;
 			window.location = newWindowLocation;
@@ -46,33 +51,26 @@
 		General function for formatting a date
 		-----------------------------------------------------------------*/
 		function dateFormat(datum){
-			console.log(datum);
  			var day = datum.getDay();
-			console.log(datum);
  			var date = datum.getDate();
-			console.log(datum);
  			var month = datum.getMonth();
-			console.log(month);
  			var year = datum.getYear();
-			console.log(year);
  			var hour = datum.getHours();
-			console.log(hour);
  			var minutes = datum.getMinutes();
-			console.log(minutes);
- 			console.log(day +' '+ date +' '+ month +' '+ year +' '+ hour +' '+ minutes);
 		}
 		/* ----------------------------------------------------------------
 		General function for generating LOV with option numbers
 		-----------------------------------------------------------------*/
 		function buildlov(quantity){
 			var optionvalue = '';
-
+			// get items selected in this session
 			for (var i=0; i<= quantity; i++) {
 				optionvalue += '<option value="'+i+'">'+i+'</option>';
 			}
 
 			return optionvalue;
 		}
+		
 		/* ----------------------------------------------------------------
 		PURE function for displaying one activity
 		-----------------------------------------------------------------*/
@@ -133,7 +131,6 @@
 			$('#loading_cart').hide();
 		}
 		$('#cart').render(shoppingcard, dshoppingcard);
-		$('#cart').show();
 		/* ----------------------------------------------------------------
 		CONTROLLERS in the Page
 		-----------------------------------------------------------------*/
@@ -144,7 +141,7 @@
 		$("#ntickets").change(function(){
 			var nmenus = $("#nmenus");
 			var ntickets = $("#ntickets");
-			if(ntickets.val() == 0){
+			if(false && ntickets.val() == 0){
 				$("span.error.tickets").html('Selecteer minimaal 1 ticket.').css({'display':'block','padding-top':'3px'});
 				compareTicketMenus(ntickets, nmenus);
 				return false;
@@ -177,7 +174,7 @@
 			}
 		}
 		function validateAmountTickets(ntickets) {
-			if(ntickets.val() == 0){
+			if(false && ntickets.val() == 0){
 				$("span.error.tickets").html('Selecteer minimaal 1 ticket.').css({'display':'block','padding-top':'3px'});
 				return false;
 			} else {
@@ -187,8 +184,10 @@
 // 					window.location = newWindowLocation;
 			}
 		}
+		/* ----------------------------------------------------------
+		 * claimUnplacedSeats
+		 * ------------------------------------------------------- */
 		function claimUnplacedSeats(ntickets, activity) {
-		
 			// get window object
 			var key = window.EPS.key;
 			var url = window.EPS.url;
@@ -199,15 +198,12 @@
 			// get from form
 			var activity_fk = activity;
 			var t_9 = ntickets; /* aantal tickets - normaal tarief */
-			var t_10 = '';
-			var t_11 = '';
-			var t_183 = '';
 
 			// static Posttheater specific
-			var extra_cost = 77; /* kosten */
-			var rank_name = 7; /* vrije zit */
-			var sales_status = 2; /* is altijd 2 = definitief */
-		
+			var extra_cost_fk = 29; /* hard coded: 29 = administratiekosten Posttheater */
+			var rank_name = 7; /* hard coded: 7 = vrije zit */
+			var sales_status = 2; /* hard coded: 2 = definitief */
+			
 			$.ajax( {
 				url : url,
 				type : "post",
@@ -216,74 +212,122 @@
 				data : {
 					a : 'claimUnplacedSeats',
 					key : key,
-					sessionId: sessionIdEnc,
+					sessionIdEnc: sessionIdEnc,
 					activity_fk: activity,
-					extra_cost_fk: extra_cost,
+					extra_cost_fk: extra_cost_fk,
 					rank_name_fk: rank_name,
 					sales_status_fk: sales_status,
-					t_9: t_9,
-					t_10: t_10,
-					t_11: t_11,
-					t_183: t_183
+					t_9: t_9
 				},
 				success : function(e) {
-					console.log(e);
+					$('#buttonwinkelwagen').val('Bewaard');
+					var msg = '<a href="/voorstellingen">&lt; verder met bestellen</a>';
+					if(e.EPSVenue.Sale.claimUnplacedSeats.totalAmount != 0) {
+						msg += ' | <a href="/winkelwagen">verder met betalen &gt;</a>';
+					}
+					if($('#new').length != 0) {
+						var HTMLStr = msg;
+						$('#new').html(HTMLStr);
+					} else {
+						var divOpen = '<div id="new" style="float:right">';
+						var divClose = '</div>';
+						var HTMLStr = divOpen + msg + divClose;
+						$('.bestellen').append(HTMLStr);
+
+					}
 				}
 			});
 			
 		}
+		/* ----------------------------------------------------------
+		 * getItemsInBasket
+		 * ------------------------------------------------------- */
 		function getItemsInBasket() {
-			try {
-		
-				// get window object
-				var key = window.EPS.key;
-				var url = window.EPS.url;
-				
-				/* get activityId when users clicked on ordered and was not logged in */
-				var activity = $.getUrlVar('activity');
+			// get window object
+			var key = window.EPS.key;
+			var url = window.EPS.url;
+			
+			/* get activityId when users clicked on ordered and was not logged in */
+			var activity = $.getUrlVar('activity');
 
-				// get cookie
-				var sessionIdEnc=$.cookie(COOKIE_NAME+'SessionIdEnc');
-				
-				var sales_channel_fk = 0;     /* Het verkoopkanaal */
-				var last_selected_by = '';    /* De string met de gebruiker waarvan het mandje wordt opgehaald (combinatie van email-adres en sessionId) */
-				var ticket_extra_cost_fk = 0; /* Het Id van de bestelkosten */
-				var delivery_method_fk = 0;   /* Het Id van de leveringsmethode */
-
-				$.ajax({
-					url: url,
-					type: "post",
-					async: false,
-					dataType:'jsonp', /* for crossdomain */
-					data: {
-						a: 'getItemsInBasket',
-						key: key,
-						sessionId: sessionIdEnc,
-						sales_channel_fk: sales_channel_fk,
-						last_selected_by: last_selected_by,
-						ticket_extra_cost_fk: ticket_extra_cost_fk,
-						delivery_method_fk: delivery_method_fk,
-						format: 'JSON'
-					},
-					success: function(e) {
-						var Code = e.EPSVenue.Result.Code;
-						var Message = e.EPSVenue.Result.Message;
-						if (Code==0){
-							var shoppingData = e.EPSVenue.Data;
-							if (shoppingData.count === 1) {
-								$('#cart').show();
-								shoppingDataJSON=JSON.stringify(shoppingData)
-								$.cookie('shoppingData', shoppingDataJSON);
-							}
-						} else {
-							$("span.error").html(Message +'\n(' + Code + ')');
-						}
-					}
-				});	
-			} catch(err) {
-				alert(err);
+			// get cookie
+			var COOKIE_NAME = window.EPS.cookie;
+			var sessionIdEnc = $.cookie(COOKIE_NAME+'SessionIdEnc');
+			var relationDataJSON=$.cookie('relationData');
+			if(relationDataJSON == null) {
+				return;
 			}
+			var relationData = JSON.parse(relationDataJSON);
+			var sales_channel_fk  = relationData.sessionData.sales_channel_fk ;
+			var ticket_extra_cost_fk = relationData.sessionData.ticket_extra_cost_fk;
+			var delivery_method_fk = relationData.sessionData.delivery_method_fk;
+			
+			
+			// toont ophalen, kan soms even duren...
+							var divOpen = '<div id="new" style="float:right">';
+							var divClose = '</div>';
+							var msg = '<table><tbody><tr><td><img alt="ophalen voorstellingen in mandje gegevens" src="/Websites/pta/Images/loading.gif" /></td><td style="vertical-align: middle;"> Ophalen gegevens</td></tr></tbody></table>';
+							var HTMLStr = divOpen + msg + divClose;
+							$('.bestellen').append(HTMLStr);			
+			$.ajax({
+				url: url,
+				type: "post",
+				async: false,
+				dataType:'jsonp', /* for crossdomain */
+				data: {
+					a: 'getItemsInBasket',
+					key: key,
+					sessionId: sessionIdEnc,
+					sales_channel_fk: sales_channel_fk,
+					ticket_extra_cost_fk: ticket_extra_cost_fk,
+					delivery_method_fk: delivery_method_fk,
+					format: 'JSON'
+				},
+				success: function(e) {				
+					var Code = e.EPSVenue.Result.Code;
+					var Message = e.EPSVenue.Result.Message;
+					if (Code==0){			
+						var msg = '<a href="/voorstellingen">&lt; verder met bestellen</a>';
+						var amountDue = e.EPSVenue.Data.amountDue;
+						if(amountDue > 0) {
+							$('#cart').show();
+							msg += ' | <a href="/winkelwagen">verder met betalen &gt;</a>';
+						}
+						var itemsInBasket = e.EPSVenue.Data.activityAr;
+						for(var lActivity in itemsInBasket) {
+							if(activity == lActivity) {
+								for(var lRankName in itemsInBasket[lActivity]) {
+									for(var lTariff in itemsInBasket[lActivity][lRankName]) {
+										var tickets = itemsInBasket[lActivity][lRankName][lTariff].tickets;
+										$('#ntickets').val(tickets);
+										$('#buttonwinkelwagen').val('Bewaar');
+									}
+								}
+							}							
+						}
+						// toont knop met verdergaan met bestellen / betalen
+						if($('#new').length != 0) {
+							var HTMLStr = msg;
+							$('#new').html(HTMLStr);
+						} else {
+							var divOpen = '<div id="new" style="float:right">';
+							var divClose = '</div>';
+							var HTMLStr = divOpen + msg + divClose;
+							$('.bestellen').append(HTMLStr);
+						}
+						
+					} else {
+						$("span.error").html(Message +'\n(' + Code + ')');
+					}
+				}
+			});	
 		}
+		
+		
+		// ==========================================================
+		getItemsInBasket();
+
+		
 	});
 
 })(jQuery)
